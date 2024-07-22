@@ -11,7 +11,7 @@ const config: Config = {
         extend: {
             fontFamily: {
                 silk: ["SilkSerif", "sans-serif"],
-                poppins: ["Poppins", "sans-serif"],
+                vietnam: ["Be Vietnam Pro", "sans-serif"],
             },
             colors: {
                 primary: "#141414",

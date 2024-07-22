@@ -1,6 +1,7 @@
 "use client";
 import {motion} from "framer-motion";
 import {AnimatedText} from "@/components/ui/AnimatedText";
+import Link from "next/link";
 
 const containerVariants = {
     hidden: { opacity: 1 },
@@ -44,10 +45,11 @@ export default function SeeCharacters() {
                         key={name}
                         className="relative flex items-center justify-center group"
                     >
+                        
                         <h5 className="font-silk absolute capitalize text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             {name}
                         </h5>
-                        <div className="relative overflow-hidden">
+                        <Link href={`/see-characters/${name}`} className="relative overflow-hidden">
                             <motion.img
                                 whileHover={{
                                     transform: "scale(1.06)",
@@ -67,7 +69,7 @@ export default function SeeCharacters() {
                                 height={415}
                             />
                             <motion.div variants={imageVariant} className="top-0 w-full absolute bg-white h-full"></motion.div>
-                        </div>
+                        </Link>
                     </div>
                 ))}
             </motion.div>

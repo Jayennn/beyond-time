@@ -16,13 +16,19 @@ type AnimatedImageProps = {
 function AnimatedImage({ src, alt, width, height, className }: AnimatedImageProps) {
 
     const ref = useRef<HTMLImageElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-20%" });
+    const isInView = useInView(ref, { once: true, margin: "-10%" });
     const controls = useAnimation();
 
     useEffect(() => {
         if (isInView) {
+            console.log(isInView);
             controls.start("visible");
         }
+
+        return () => {
+            controls.stop();
+        };
+
     }, [isInView, controls]);
 
     const slide = {
@@ -30,11 +36,13 @@ function AnimatedImage({ src, alt, width, height, className }: AnimatedImageProp
             translateX: "0%"
         },
         visible: {
-            translateX: "100%",
+            translateX: "101%",
+            display: "none",
             transition: {
                 type: "spring",
                 damping: 35,
                 stiffness: 100,
+                delay: 0.5
             },
         }
     };
