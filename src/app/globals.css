@@ -64,3 +64,13 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
     pointer-events: none;
 }
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.player-spin {
+    animation: spin 5s linear infinite;
+}
