@@ -8,6 +8,7 @@ interface Position {
     top: number;
 }
 
+
 function generatePositions(count: number, width: number, height: number): Position[] {
     const positions: Position[] = [];
     const gridSize = Math.sqrt(count);
@@ -48,7 +49,7 @@ export default function RandomName(): JSX.Element {
         const updatePositions = (): void => {
             const width = window.innerWidth;
             const height = window.innerHeight;
-            setPositions(generatePositions(100, width, height));
+            setPositions(generatePositions(50, width, height));
         };
 
         updatePositions();
@@ -60,7 +61,7 @@ export default function RandomName(): JSX.Element {
     console.log(positions.length);
 
     return (
-        <section className="font-vietnam container mx-auto relative flex items-center justify-center min-h-screen overflow-hidden">
+        <section className="mt-44 font-vietnam container mx-auto relative flex items-center justify-center min-h-[50vh] overflow-hidden">
             <h4 className="text-2xl font-medium text-primary z-10">You can call me</h4>
             <div className="absolute inset-0">
                 {positions.map((pos, i) => (

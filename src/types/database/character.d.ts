@@ -12,6 +12,7 @@ type FavoriteSongType = {
     title: string;
     artist: string;
     image_album: string;
+    song_url: string;
 };
 
 type CharacterSongType = {
@@ -20,6 +21,10 @@ type CharacterSongType = {
 
 export type CharacterDetailType = {
     name: string;
-    description: string;
+    characters_detail: {
+        image: string,
+        description: string,
+        call_name_image: string
+    };
     favorite_songs: FavoriteSongType[];
 };

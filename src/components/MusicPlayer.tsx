@@ -11,6 +11,7 @@ type Song = {
     title: string;
     artist: string;
     image_album: string | StaticImport;
+    song_url: string;
 };
 
 type AudioContextType = {
@@ -95,11 +96,13 @@ export function MusicPlayer({ song }: MusicPlayerProps) {
         setCurrentSong(null);
     }
 
+    console.log(song.song_url);
+
     function playMusic() {
         if (!audio) return;
 
         if (currentSong?.id !== song.id) {
-            audio.src = `/music/${song.title}.mp3`;
+            audio.src = song.song_url;
         }
         audio.play().catch(error => console.error("Error playing audio:", error));
         setCurrentSong(song);
