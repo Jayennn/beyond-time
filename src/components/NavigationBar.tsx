@@ -9,6 +9,7 @@ export function NavigationBar() {
                     <Link href="/" className="links uppercase">Beyond Time</Link>
                 </div>
                 <div className="flex items-center space-x-6">
+                    <Link href="/author" className="links uppercase">Author</Link>
                     <Link href="/about-you" className="links uppercase">About You</Link>
                     <Link href="/see-characters" className="links uppercase">See Characters</Link>
                 </div>
