@@ -46,7 +46,7 @@
 
 html.lenis, html.lenis body {
     height: auto;
-    overflow: hidden;
+    @apply lg:overflow-hidden;
 }
 
 .lenis.lenis-smooth {

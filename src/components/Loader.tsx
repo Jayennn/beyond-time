@@ -59,12 +59,13 @@ export function Loader({setIsLoading}: LoaderProps) {
         animationIntro();
 
     }, []);
+
     return (
         <div ref={scope} className="overflow-hidden">
             <div id="intro-wrapper"
                  className="absolute top-0 w-full min-h-screen flex items-center justify-center bg-white z-20">
-                <div className="flex flex-col space-y-4 items-center">
-                    <div id="words" className="font-silk text-6xl text-primary flex">
+                <div className="container mx-auto flex flex-col space-y-4 items-center">
+                    <div id="words" className="font-silk text-4xl md:text-6xl text-primary flex">
                         {text.split('').map((letter, index) => (
                             <span key={index}
                                   className={`letter opacity-0 inline-block ${isLastLetterOfWord(index, text) ? 'mr-4' : ''}`}>

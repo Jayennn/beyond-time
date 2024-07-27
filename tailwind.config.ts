@@ -7,7 +7,10 @@ const config: Config = {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
-
+        container: {
+            padding: "1rem",
+            center: true
+        },
         extend: {
             fontFamily: {
                 silk: ["SilkSerif", "sans-serif"],

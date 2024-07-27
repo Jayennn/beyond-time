@@ -21,10 +21,8 @@ type CharacterSongType = {
 
 export type CharacterDetailType = {
     name: string;
-    characters_detail: {
-        image: string,
-        description: string,
-        call_name_image: string
-    };
+    description: string,
+    banner: string,
+    list_names_image: string
     favorite_songs: FavoriteSongType[];
 };

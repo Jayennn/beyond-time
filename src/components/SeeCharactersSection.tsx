@@ -1,15 +1,22 @@
 "use client";
 import {AnimatedText} from "@/components/ui/AnimatedText";
-import {motion} from "framer-motion";
+import {motion, useAnimation, useInView, useScroll} from "framer-motion";
 import Link from "next/link";
 import {CharacterType} from "@/types/database/character";
+import {useEffect, useRef} from "react";
 
 type SeeCharactersSectionProps = {
     characters: CharacterType[]
 }
 
 export function SeeCharactersSection({ characters }: SeeCharactersSectionProps ){
-
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["end end", "end start"],
+    });
+    const isInView = useInView(sectionRef, { once: true, margin: "-20%" });
+    const mainControls = useAnimation();
     const containerVariants = {
         hidden: { opacity: 1 },
         visible: {
@@ -35,6 +42,13 @@ export function SeeCharactersSection({ characters }: SeeCharactersSectionProps )
         },
     };
 
+    useEffect(() => {
+        if (isInView) {
+            console.log("in view");
+            mainControls.start("visible");
+        }
+    }, [isInView, mainControls]);
+
     if(characters.length < 0){
         return <h1>Loading</h1>;
     }
@@ -43,10 +57,11 @@ export function SeeCharactersSection({ characters }: SeeCharactersSectionProps )
         <>
             <AnimatedText className="text-primary font-silk text-3xl mb-4" word="Characters"/>
             <motion.div
-                className="grid grid-cols-9 gap-1"
+                ref={sectionRef}
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-1"
                 variants={containerVariants}
+                animate={mainControls}
                 initial="hidden"
-                animate="visible"
             >
                 {characters.map((character) => (
                     <div

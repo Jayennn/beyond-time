@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <>
             <Loader setIsLoading={setIsLoading}/>
-            <main ref={mainRef} className="relative min-h-screen overflow-y-hidden space-y-6">
+            <main ref={mainRef} className="relative min-h-screen overflow-y-hidden space-y-8">
                 {!isLoading && (
                     <>
                         <HomeSection

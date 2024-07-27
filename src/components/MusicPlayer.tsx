@@ -4,7 +4,6 @@ import Image from "next/image";
 import {Pause, Play} from "lucide-react";
 import {StaticImport} from "next/dist/shared/lib/get-img-props";
 import {cn} from "@/lib/cn";
-import {AnimatePresence, motion} from "framer-motion";
 
 type Song = {
     id: number;
@@ -31,6 +30,19 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 
     useEffect(() => {
         setAudio(new Audio());
+    }, []);
+
+    useEffect(() => {
+        const newAudio = new Audio();
+        setAudio(newAudio);
+
+        // Cleanup function
+        return () => {
+            newAudio.pause();
+            newAudio.src = '';
+            setCurrentSong(null);
+            setCurrentlyPlayingId(null);
+        };
     }, []);
 
     const value: AudioContextType = {
@@ -70,7 +82,14 @@ export function MusicPlayer({ song }: MusicPlayerProps) {
         } else {
             setPlay(false);
         }
+
+        // Add this check
+        if (!currentSong) {
+            setPlay(false);
+        }
     }, [currentSong, song.id]);
+
+
 
     useEffect(() => {
         if (!audio || !isCurrentlyPlaying) return;
@@ -96,7 +115,7 @@ export function MusicPlayer({ song }: MusicPlayerProps) {
         setCurrentSong(null);
     }
 
-    console.log(song.song_url);
+
 
     function playMusic() {
         if (!audio) return;
@@ -161,22 +180,22 @@ export function MusicPlayer({ song }: MusicPlayerProps) {
                     />
                 )}
             </div>
-            <AnimatePresence>
-                {isCurrentlyPlaying && (
-                    <motion.div  initial={{opacity: 0, width: 0}} animate={{opacity: 1, width: "100%"}} exit={{opacity: 0, width: 0}} className="w=full">
-                        <motion.div className="bg-gray-100/90 rounded-full h-[3px] dark:bg-gray-700">
-                            <div
-                                className="bg-gray-500 h-[3px] rounded-full"
-                                style={{width: `${progress}%`}}
-                            ></div>
-                        </motion.div>
-                        <div className="flex justify-between text-xs mt-1">
-                            <span>{formatTime(currentTime)}</span>
-                            <span>{formatTime(duration)}</span>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            {/*<AnimatePresence>*/}
+            {/*    {isCurrentlyPlaying && (*/}
+            {/*        <motion.div  initial={{opacity: 0, width: 0}} animate={{opacity: 1, width: "100%"}} exit={{opacity: 0, width: 0}} className="w=full">*/}
+            {/*            <motion.div className="bg-gray-100/90 rounded-full h-[3px] dark:bg-gray-700">*/}
+            {/*                <div*/}
+            {/*                    className="bg-gray-500 h-[3px] rounded-full"*/}
+            {/*                    style={{width: `${progress}%`}}*/}
+            {/*                ></div>*/}
+            {/*            </motion.div>*/}
+            {/*            <div className="flex justify-between text-xs mt-1">*/}
+            {/*                <span>{formatTime(currentTime)}</span>*/}
+            {/*                <span>{formatTime(duration)}</span>*/}
+            {/*            </div>*/}
+            {/*        </motion.div>*/}
+            {/*    )}*/}
+            {/*</AnimatePresence>*/}
         </div>
     );
 }

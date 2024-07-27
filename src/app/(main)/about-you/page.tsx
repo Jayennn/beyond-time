@@ -3,7 +3,7 @@ import {AnimatedTextStagger} from "@/components/ui/AnimatedText";
 
 export default function AboutYou(){
     return (
-        <div className="py-20 min-h-screen container mx-auto flex flex-col gap-8">
+        <div className="py-20 min-h-screen container mx-auto flex flex-col gap-8 overflow-x-hidden">
             <div className="ml-auto py-44">
                 <AnimatedTextStagger
                     justify="end"
@@ -64,7 +64,7 @@ export default function AboutYou(){
                 height={365}
             />
             <p className="mb-44 font-silk text-left text-3xl">Thank You</p>
-            <div className="flex items-center gap-4 overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center gap-4 overflow-hidden">
                 <AnimatedImage  src="/images/about-you/studio(2).webp" alt="rumah-hantu" width={598} height={460}/>
                 <AnimatedImage  src="/images/about-you/studio.webp" alt="rumah-hantu" width={598} height={460}/>
             </div>
