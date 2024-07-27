@@ -48,7 +48,7 @@ export function Loader({setIsLoading}: LoaderProps) {
 
             await animate("#loader-wrapper",
                 {opacity: 0, display: "none"},
-                {duration: 0.6, ease: "easeIn", delay: 1}
+                {duration: 0.6, ease: "easeIn", delay: 5}
             );
             setIsLoading(false);
 
