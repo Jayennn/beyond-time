@@ -58,7 +58,7 @@ export function SeeCharactersSection({ characters }: SeeCharactersSectionProps )
             <AnimatedText className="text-primary font-silk text-3xl mb-4" word="Characters"/>
             <motion.div
                 ref={sectionRef}
-                className="grid grid-cols-3 lg:grid-cols-9 gap-1"
+                className="p-2 grid grid-cols-3 lg:grid-cols-9 gap-1"
                 variants={containerVariants}
                 animate={mainControls}
                 initial="hidden"

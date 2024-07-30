@@ -43,7 +43,7 @@ export default async function Page({params}: {params: {slug: string}}) {
             </section>
             <section className="font-vietnam relative container mx-auto py-14">
                 <div className="flex flex-col lg:flex-row md:justify-between space-y-6 lg:space-y-0">
-                    <div className="flex flex-col space-y-3 md:space-y-6 lg:max-w-lg">
+                    <div className="flex flex-col space-y-3 md:space-y-6 lg:max-w-md">
                         <h4 className="font-medium text-2xl text-primary">Description</h4>
                         <p className="text-sm text-secondary text-justify">{characterDetail?.description}</p>
                     </div>
