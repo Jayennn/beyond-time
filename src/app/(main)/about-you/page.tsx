@@ -29,7 +29,7 @@ export default function AboutYou(){
             </div>
             {/*<p className="mb-44 font-silk max-w-xl text-3xl">The shared laughter and cherished memories</p>*/}
             <AnimatedImage
-                className="ml-8"
+                className="md:ml-8"
                 src="/images/about-you/fore.webp"
                 alt="fore-coffee"
                 width={571}

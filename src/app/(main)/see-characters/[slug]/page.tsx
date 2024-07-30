@@ -32,7 +32,7 @@ export default async function Page({params}: {params: {slug: string}}) {
     return (
         <>
             <section className="relative pt-16">
-                <div className="bg-black/30 relative flex flex-col gap-4 lg:flex-row md:items-center md:justify-between h-[185px] p-4 lg:p-20 w-full">
+                <div className="bg-black/30 relative flex flex-col gap-4 lg:flex-row items-center md:justify-between h-[185px] p-4 lg:p-20 w-full">
                     <div>
                         <h1 className="font-silk text-4xl md:text-5xl text-white">{characterDetail.name}</h1>
                     </div>
